@@ -1,15 +1,16 @@
 FROM node:latest
 
-RUN mkdir -p /usr/src/app
+ENV HOME=/usr/src/app
 
-WORKDIR /usr/src/app
+RUN mkdir -p $HOME 
 
-COPY package.json /usr/src/app
+WORKDIR $HOME 
+
+COPY package.json $HOME 
 
 RUN npm install
 
-COPY . /usr/src/app
+COPY . $HOME
 
 EXPOSE 4200
-
-CMD ["npm", "start"]
+EXPOSE 49153
