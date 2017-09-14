@@ -10,4 +10,5 @@ Simple docker MEAN seed project
 
 1. `$ git clone git@github.com:alsheuski/mean-docker.git mean`
 2. `$ cd mean`
-3. `$ docker-compose up`
+3. `$ docker-compose build`
+4. `$ docker-compose up`
