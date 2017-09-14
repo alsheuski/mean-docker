@@ -14,8 +14,11 @@ services:
     build: express-server
     ports:
       - "3000:3000"
+    volumes:
+      - ./express-server:/usr/src/app
     links:
       - database
+    command: npm start
 
   database:
     image: mongo

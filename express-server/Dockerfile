@@ -1,15 +1,12 @@
 FROM node:latest
 
-RUN mkdir -p /usr/src/app
+ENV HOME=/usr/src/app
 
-WORKDIR /usr/src/app
+RUN mkdir -p $HOME
 
-COPY package.json /usr/src/app
+WORKDIR $HOME
 
+RUN npm install -g pm2
 RUN npm install
 
-COPY . /usr/src/app
-
 EXPOSE 3000
-
-CMD ["npm", "start"]

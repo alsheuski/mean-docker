@@ -2,6 +2,11 @@ const express = require('express');
 const path = require('path');
 const http = require('http');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+
+const dbHost = 'mongodb://database/mean-docker';
+
+mongoose.connect(dbHost);
 
 const api = require('./routes/api');
 
@@ -16,7 +21,7 @@ app.use(function(req, res, next) {
     next();
 });
 
-app.use('/', api);
+app.use('/api/v1/', api);
 
 const port = process.env.PORT || '3000';
 app.set('port', port);
