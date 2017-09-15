@@ -5,10 +5,8 @@ services:
     build: angular-client # directory of necessary Dockerfile
     ports:
       - "4200:4200"
-      - "49153:49153"
     volumes:
       - ./angular-client:/usr/src/app
-      - /usr/src/app/node_modules
     command: npm start
 
   express:
@@ -17,7 +15,6 @@ services:
       - "3000:3000"
     volumes:
       - ./express-server:/usr/src/app
-      - /usr/src/app/node_modules
     links:
       - database
     command: npm start
