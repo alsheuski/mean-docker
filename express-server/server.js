@@ -4,7 +4,7 @@ const http = require('http');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
-const dbHost = 'mongodb://database/mean-docker';
+const dbHost = process.env.DB_HOST;
 
 mongoose.connect(dbHost);
 

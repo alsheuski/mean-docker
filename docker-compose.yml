@@ -3,6 +3,8 @@ version: '2'
 services:
   angular:
     build: angular-client # directory of necessary Dockerfile
+    environment:
+      - NODE_ENV=development
     ports:
       - "4200:4200"
     volumes:
@@ -11,6 +13,9 @@ services:
 
   express:
     build: express-server
+    environment:
+      - DB_HOST=${DB_HOST}
+      - NODE_ENV=development
     ports:
       - "3000:3000"
     volumes:
