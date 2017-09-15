@@ -1,25 +1,25 @@
 version: '2'
 
 services:
-  angular:
-    build: angular-client # directory of necessary Dockerfile
+  client:
+    build: client # directory of necessary Dockerfile
     environment:
       - NODE_ENV=development
     ports:
       - "4200:4200"
     volumes:
-      - ./angular-client:/usr/src/app
+      - ./client:/usr/src/app
     command: npm start
 
-  express:
-    build: express-server
+  server:
+    build: server
     environment:
       - DB_HOST=${DB_HOST}
       - NODE_ENV=development
     ports:
       - "3000:3000"
     volumes:
-      - ./express-server:/usr/src/app
+      - ./server:/usr/src/app
     links:
       - database
     command: npm start
